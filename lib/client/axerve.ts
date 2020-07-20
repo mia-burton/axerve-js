@@ -34,7 +34,7 @@ export class AxerveClient {
         ...orderDetail
       }
       const res = await this.restClient.post('/payment/create/', body)
-      if (parseInt(res.data.error.code) === 0) {
+      if (parseInt(res.data.error.code) !== 0) {
         throw new AxerveError(res.data.error)
       }
       const token = new OrderToken(res.data.payload.paymentToken, res.data.payload.paymentId, res.data.payload.useRedirect.href)
@@ -61,7 +61,7 @@ export class AxerveClient {
           paymentToken: token,
         }
       })
-      if (parseInt(res.data.error.code) === 0) {
+      if (parseInt(res.data.error.code) !== 0) {
         throw new AxerveError(res.data.error)
       }
       const transaction = new Transaction(res.data.payload)
