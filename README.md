@@ -16,7 +16,7 @@ const client = new AxerveClient(API_KEY, SHOP_LOGIN)
 client.createOrder(orderDetail)
 
 //Submit payment
-client.submitORder(token, creditCard)
+client.submitOrder(token, creditCard)
 
 ```
 ## Enable sandbox env
