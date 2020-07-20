@@ -1,6 +1,6 @@
 {
   "name": "@mia-burton/axerve-js",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Axerve payment gateway for js app",
   "main": "dist/index.js",
   "scripts": {
