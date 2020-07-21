@@ -37,7 +37,7 @@ export class AxerveClient {
       if (parseInt(res.data.error.code) !== 0) {
         throw new AxerveError(res.data.error)
       }
-      const token = new OrderToken(res.data.payload.paymentToken, res.data.payload.paymentId, res.data.payload.useRedirect.href)
+      const token = new OrderToken(res.data.payload.paymentToken, res.data.payload.paymentId, res.data.payload.userRedirect.href)
       return token
     } catch(err) {
       if (err.response && err.response.data && err.response.data.error) {
