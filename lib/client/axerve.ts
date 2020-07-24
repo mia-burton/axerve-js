@@ -52,7 +52,10 @@ export class AxerveClient {
       const body = {
         shopLogin: this.shopLogin,
         paymentTypeDetails: {
-          creditcard: creditCard
+          creditcard: {
+            ...creditCard,
+            DCC: creditCard.isCurrencyConversionEnabled.toString()
+          }
         }
       }
       const res = await this.restClient.post('/payment/submit/', body, {
