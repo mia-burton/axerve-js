@@ -22,7 +22,7 @@ export class Transaction {
   private readonly tokenExpiryYear: string
   private readonly redirectUrl: string
 
-  constructor(data: Record<string, string>) {
+  constructor(data: Record<string, any>) {
     this.type = data.transactionType
     this.result = data.transactionResult
     this.errorCode = data.transactionErrorCode
@@ -44,7 +44,7 @@ export class Transaction {
     this.token = data.token
     this.tokenExpiryMonth = data.tokenExpiryMonth
     this.tokenExpiryYear = data.TokenExpiryYear
-    this.redirectUrl = data.userRedirecthref
+    this.redirectUrl = data.userRedirect.href
   }
   /**
    * Get transaction type
