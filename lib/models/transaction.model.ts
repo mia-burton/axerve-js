@@ -23,8 +23,8 @@ export class Transaction {
   private readonly redirectUrl: string
 
   constructor(data: Record<string, string>) {
-    this.type = data.type
-    this.result = data.result
+    this.type = data.transactionType
+    this.result = data.transactionResult
     this.errorCode = data.transactionErrorCode
     this.errorDescription = data.transactionErrorDescription
     this.bankId = data.bankTransactionID
