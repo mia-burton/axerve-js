@@ -54,7 +54,7 @@ export class AxerveClient {
         paymentTypeDetails: {
           creditcard: {
             ...creditCard,
-            DCC: creditCard.isCurrencyConversionEnabled.toString()
+            DCC: creditCard.isCurrencyConversionEnabled().toString()
           }
         }
       }
