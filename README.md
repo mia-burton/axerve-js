@@ -19,6 +19,13 @@ client.createOrder(orderDetail)
 client.submitOrder(token, creditCard)
 
 ```
+To override back-office user redirect url pass it to `submitOrder`
+```typescript
+//Submit payment
+client.submitOrder(token, creditCard, successUrl, errorUrl)
+
+```
+
 ## Enable sandbox env
 On inizialization set `sandbox` parameter to true
 
