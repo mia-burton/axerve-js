@@ -18,6 +18,8 @@ export interface ClientInterface {
    * In case the payment method requires a selected redirect it will provide the URL to redirect the customer.
    * @param token string - The payment token, created via payment/create
    * @param creditCard: CreditCard - Credit card data
+   * @param successUrl string - Override success url back-office configuration for 3D-Secure card
+   * @param errorUrl string - Override error url back-office configuration for 3D-Secure card
    */
-  submitOrder(token: string, creditCard: CreditCard): Promise<Transaction>
+  submitOrder(token: string, creditCard: CreditCard, successUrl?: string, errorUrl?: string): Promise<Transaction>
 }

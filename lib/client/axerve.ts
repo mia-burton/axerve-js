@@ -47,7 +47,7 @@ export class AxerveClient {
     }
   }
 
-  public async submitOrder(token: string, creditCard: CreditCard): Promise<Transaction> {
+  public async submitOrder(token: string, creditCard: CreditCard, successUrl?: string, errorUrl?: string): Promise<Transaction> {
     try {
       const body = {
         shopLogin: this.shopLogin,
@@ -56,6 +56,17 @@ export class AxerveClient {
             ...creditCard,
             DCC: creditCard.isCurrencyConversionEnabled().toString()
           }
+        },
+        responseURLs: {}
+      }
+      if (successUrl) {
+        body.responseURLs = {
+          buyerOK: successUrl
+        }
+      }
+      if (errorUrl) {
+        body.responseURLs = {
+          buyerKO: errorUrl
         }
       }
       const res = await this.restClient.post('/payment/submit/', body, {
