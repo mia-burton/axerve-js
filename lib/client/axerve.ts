@@ -66,6 +66,7 @@ export class AxerveClient {
       }
       if (errorUrl) {
         body.responseURLs = {
+          ...body.responseURLs,
           buyerKO: errorUrl
         }
       }
